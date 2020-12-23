@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Ventas</title>
+    
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+</head>
+<body>
+    <header>
+    <h1>Listado Ventas</h1>
+</header>
+<fieldset>
+    <table id="tableid" class="display" style="width:100%">
+        <thead>
+        <tr>
+            <th>Id Ventas</th>
+            <th>Vendedor</th>
+            <th>Sub Total</th>
+            <th>Impuesto</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>Armando Paredes</td>
+            <td>12400</td>
+            <td>1364</td>
+            <td>13764</td>
+            <td>
+                <input type="button" value="eliminar" name="cheq" id="elim1" onclick="eliminaventa()">
+                <input type="button" value="agregar" name="cheq" id="agr1" onclick="agregaventa()"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Adrián Droide</td>
+            <td>6600</td>
+            <td>726</td>
+            <td>7326</td>
+            <td>
+                <input type="button" value="eliminar" name="cheq" id="elim2" onclick="eliminaventa()">
+                <input type="button" value="agregar" name="cheq" id="agr2" onclick="agregaventa()"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Alba Bosa</td>
+            <td>15000</td>
+            <td>1650</td>
+            <td>16650</td>
+            <td>
+                <input type="button" value="eliminar" name="cheq" id="elim3" onclick="eliminaventa()">
+                <input type="button" value="agregar" name="cheq" id="agr3" onclick="agregaventa()"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr class="negrita">
+                <th>Id Ventas</th>
+                <th>Vendedor</th>
+                <th>Sub Total</th>
+                <th>Impuesto</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+    </fieldset>
+        <hr>
+        
+        <footer class="col-12">
+            <h1>REFERENCIAS</h1>
+            <ul>
+                <li>
+            <a href="https://es.wikipedia.org/wiki/Chocolate
+            ">Historia del Chocolate</a>
+            </li>
+            <li>
+            <a href="https://es.wikipedia.org/wiki/Pal%C3%A9
+            ">Historia de los pallets</a>
+            </li>
+            <li>
+            <a href="https://es.wikipedia.org/wiki/Charlie_y_la_f%C3%A1brica_de_chocolate_(pel%C3%ADcula)
+            ">Historia de nuestra fábrica</a>
+            </li>
+            </ul>
+            </footer>
+
+            <script src="script.js">
+
+            </script>
+
+ </body>
+</html>

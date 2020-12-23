@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Factura</title>
+    <style> 
+        body {
+        background-image: url(https://www.publicdomainpictures.net/pictures/130000/velka/chocolate-candy-bar-background.jpg);
+        }
+        h1 {
+            font-size: 5vw;
+            font-family: 'Courier New', Courier, monospace;
+            color: blanchedalmond;
+        }
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+        ul {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+        a {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+        input {
+            margin: 10px;
+        }
+        td {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+        /* Para teléfonos móviles: */ 
+        [class*="col-"] 
+        { width: 100%; } 
+        @media only screen and (min-width: 600px) { 
+            /* Para tabletas: */ 
+            .col-s-1 {width: 8.33%;} 
+            .col-s-2 {width: 16.66%;} 
+            .col-s-3 {width: 25%;} 
+            .col-s-4 {width: 33.33%;} 
+            .col-s-5 {width: 41.66%;} 
+            .col-s-6 {width: 50%;} 
+            .col-s-7 {width: 58.33%;} 
+            .col-s-8 {width: 66.66%;} 
+            .col-s-9 {width: 75%;} 
+            .col-s-10 {width: 83.33%;} 
+            .col-s-11 {width: 91.66%;} 
+            .col-s-12 {width: 100%;} } 
+            @media only screen and (min-width: 768px) { 
+                /* Para equipos de escritorio: */ 
+                .col-1 {width: 8.33%;} 
+                .col-2 {width: 16.66%;} 
+                .col-3 {width: 25%;} 
+                .col-4 {width: 33.33%;} 
+                .col-5 {width: 41.66%;} 
+                .col-6 {width: 50%;} 
+                .col-7 {width: 58.33%;} 
+                .col-8 {width: 66.66%;} 
+                .col-9 {width: 75%;} 
+                .col-10 {width: 83.33%;} 
+                .col-11 {width: 91.66%;} 
+                .col-12 {width: 100%;} }
+        #confirmacion{
+            color: lightgreen;
+            font-weight:bold;
+            font-size: 34px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+    <div id="agrupar">
+        <header>
+            <h1>Crear Factura</h1>
+        </header>
+        
+            <form class="cmxform" id="commentForm" method="get" action="#">
+                <fieldset>
+                    <table>
+                <tr>
+                    <td><label for="idfactura">ID Factura</label></td>
+                    <td><input id="idfactura" type="text" name="idfactura"/></td>
+
+                </tr>
+                <tr>
+                <td><label for="idventa">ID Venta</label></td>
+                <td><input id="idventa" type="text" name="idventa"/></td>
+
+                </tr>
+                <tr>
+                    <td><label for="fechag">Fecha generación</label></td>
+                    <td><input id="fechag" type="text" name="fechag" readonly="readonly"/></td>
+
+                </tr>
+                <tr>
+                    <td><label for="fechap">Fecha pago</label></td>
+                    <td><input id="fechap" type="text" name="fechap" readonly="readonly"/></td>
+
+                </tr>
+                <tr>
+                    <td><label for="subtotal">Subtotal</label></td>
+                    <td><input id="subtotal" type="text" name="subtotal"/></td>
+
+                </tr>
+                <tr>
+                    <td><label for="impuesto">Impuesto</label></td>
+                    <td><input id="impuesto" type="text" name="impuesto"/></td>                    
+                </tr>
+                <tr>
+                    <td><label for="total">Total </label></td>
+                    <td><input id="total" type="text" name="total"/></td>
+
+                </tr>
+                
+                <tr><td><input type="submit" id="validar" value="validar"/></td></tr>
+            </table>
+            </fieldset> 
+            </form>
+       
+            <hr>
+        
+            <footer class="col-12">
+                <h1>REFERENCIAS</h1>
+                <ul>
+                    <li>
+                <a href="https://es.wikipedia.org/wiki/Chocolate
+                ">Historia del Chocolate</a>
+                </li>
+                <li>
+                <a href="https://es.wikipedia.org/wiki/Pal%C3%A9
+                ">Historia de los pallets</a>
+                </li>
+                <li>
+                <a href="https://es.wikipedia.org/wiki/Charlie_y_la_f%C3%A1brica_de_chocolate_(pel%C3%ADcula)
+                ">Historia de nuestra fábrica</a>
+                </li>
+                </ul>
+                </footer>
+        
+    </div>
+    <script>
+        $(document).ready( function () {
+
+        $.validator.addMethod("valueNotEquals", function(value, element, arg){
+            return arg !== value;
+        }, "Value must not equal arg.")
+
+        $("#fechag").datepicker();
+        $("#fechap").datepicker();
+
+
+        $('#commentForm').validate({
+            rules: {
+                idfactura: {
+                    required: true,
+                    digits: true,
+                    max: 9999,
+                    min: 1
+                },
+                idventa: {
+                    required: true,
+                    digits: true,
+                    max: 999,
+                    min: 1
+                },
+                fechag: {
+                    required: true,
+                },
+                fechap: {
+                    required: true,
+                },
+                subtotal: {
+                    required: true,
+                    digits: true,
+                    min: 1,
+                },
+                impuesto: {
+                    required: true,
+                    digits: true,
+                    min: 1,
+                },
+                total: {
+                    required: true,
+                    digits: true,
+                    min: 1
+                },
+            },
+            messages: {
+                idfactura: {
+                    required: "Este es un campo obligatorio.",
+                    max: "Excede numero máximo de caracteres.",
+                    digits: "Debe ingresar solo números"
+                },
+                idventa: {
+                    required: "Este es un campo obligatorio.",
+                    max: "Excede numero máximo de caracteres.",
+                    digits: "Debe ingresar solo números"
+                },
+                fechag: "Este es un campo obligatorio.",
+                fechap: "Este es un campo obligatorio.",
+                subtotal: {
+                    required: "Este es un campo obligatorio.",
+                    digits: "Debe ingresar solo números"
+                },
+                impuesto: {
+                    required: "Este es un campo obligatorio.",
+                    digits: "Debe ingresar solo números"
+                },
+                total: {
+                    required: "Este es un campo obligatorio.",
+                    digits: "Debe ingresar solo números"
+                },
+            }
+        });
+
+
+} );
+    </script>
+</body>
+
+</html>

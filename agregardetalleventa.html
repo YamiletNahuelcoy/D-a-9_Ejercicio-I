@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Detalle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-image: url(https://www.publicdomainpictures.net/pictures/130000/velka/chocolate-candy-bar-background.jpg);
+        }
+
+        h1 {
+            font-size: 5vw;
+            font-family: 'Courier New', Courier, monospace;
+            color: blanchedalmond;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+
+        ul {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+
+        a {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+        td {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: blanchedalmond;
+        }
+
+        /* Para teléfonos móviles: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* Para tabletas: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* Para equipos de escritorio: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        #confirmacion {
+            color: lightgreen;
+            font-weight: bold;
+            font-size: 34px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Detalle de Venta</h1>
+    </header>
+    <fieldset>
+        <form>
+
+            <table class="col- col-12">
+                <tr>
+                    <td>Venta</td>
+                    <td><select id="venta">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Producto</td>
+                    <td><select name="options" id="options" class="form-control">
+                            <option value="" selected="selected">Seleccione...</option>
+                            <option id="opcion1">bombones</option>
+                            <option id="opcion2">chocolate rama</option>
+                            <option id="opcion3">pallet de chocolate</option>
+                            <option id="opcion4">kilo de chocolate</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Cantidad</td>
+                    <td><input id="cantidad" type="number" /></td>
+                </tr>
+
+
+            </table>
+            <button type="button" id="btnDetalle">Agregar detalle</button>
+
+
+            <div id="detalle">
+
+            </div>
+
+        </form>
+    </fieldset>
+    <hr>
+
+    <footer class="col-12">
+        <h1>REFERENCIAS</h1>
+        <ul>
+            <li>
+                <a href="https://es.wikipedia.org/wiki/Chocolate
+            ">Historia del Chocolate</a>
+            </li>
+            <li>
+                <a href="https://es.wikipedia.org/wiki/Pal%C3%A9
+            ">Historia de los pallets</a>
+            </li>
+            <li>
+                <a href="https://es.wikipedia.org/wiki/Charlie_y_la_f%C3%A1brica_de_chocolate_(pel%C3%ADcula)
+            ">Historia de nuestra fábrica</a>
+            </li>
+        </ul>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnDetalle").click(function () {
+
+                if ($('#opcion1') == 1) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#opcion2').length > 1) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#opcion3').length > 1) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#opcion4').length > 1) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else {
+
+
+                    $(detalle).append("<hr>");
+                    //$( detalle ).append( "" );
+                    $(detalle).append("<tr><td>Venta</td><td>Producto</td><td>Cantidad</td></tr>");
+
+                    $(detalle).append("<tr><td> " + $('#venta').val() + "</td><td>" + $('#options')
+                        .val() +
+                        "</td><td>" + $('#cantidad').val() + "</td></tr>");
+
+
+                }
+
+                /*if ($('#options').length === $('#opcion1').length) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#options').length === $('#opcion2').length) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#chpallet').length) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else if ($('#chkilo').length) {
+                    alert("ERROR El producto ya fue ingresado");
+                } else {
+                    $(detalle).append("<hr>");
+                    //$( detalle ).append( "" );
+                    $(detalle).append("<tr><td>Venta</td><td>Producto</td><td>Cantidad</td></tr>");
+
+                    $(detalle).append("<tr><td>" + $('#venta').val() + "</td><td id='" + $(' #options')
+                        .val() +
+                        "'>" + $('#producto').val() + "</td><td>" + $('#cantidad').val() +
+                        "</td></tr></table>");
+                    //$( detalle ).append( "</table>" );
+                }*/
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
